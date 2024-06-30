@@ -1,6 +1,7 @@
 services:
   bookstack:
     image: lscr.io/linuxserver/bookstack
+    restart: unless-stopped
     container_name: bookstack
     environment:
       - PUID=1000
@@ -20,6 +21,7 @@ services:
       - bookstack_db
   bookstack_db:
     image: mysql
+    restart: unless-stopped
     container_name: bookstack_db
     environment:
       - PUID=1000
